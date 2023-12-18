@@ -1,0 +1,34 @@
+.top-box {
+  padding: 1rem;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 5px;
+  /* border: 1px solid green; */
+  justify-content: center;
+}
+.main {
+  width: 30vw;
+}
+
+img {
+  height: 20px;
+  background-color: blue;
+  border-radius: 40%;
+}
+
+.temp {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: 1px solid green; */
+}
+.temp-box-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-temp {
+  font-size: 25px;
+}
