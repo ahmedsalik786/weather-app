@@ -18,37 +18,13 @@ function Home() {
   const [city, setCity] = useState("guwahati");
   const [position, setPosition] = useState();
 
-  // useEffect(() => {
-  //   handleSearch();
-  // }, []);
+  useEffect(() => {
+    handleSearch(city, dispatch);
+  }, []);
 
   useEffect(() => {
     getWeatherCoord(position, dispatch);
   }, [position]);
-
-  // async function getWeatherCoord(position) {
-  //   console.log(position);
-  //   try {
-  //     const response = await weatherInstance.get(
-  //       `/weather?lat=${position.latitude}&lon=${position.longitude}`
-  //     );
-  //     dispatch(fetchWeather(response));
-  //   } catch (error) {
-  //     console.log("Error getting weather using coordinates: " + error);
-  //   }
-  // }
-
-  // const handleSearch = async (city, dispatch) => {
-  //   try {
-  //     const response = await weatherInstance.get(`/weather?q=${city},india`);
-  //     dispatch(fetchWeather(response));
-  //     // setWeatherData(response);
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.error("Error fetching weather:", error);
-  //     throw error;
-  //   }
-  // };
 
   return (
     <div className="home-container">
@@ -66,7 +42,7 @@ function Home() {
           <button onClick={() => handleSearch(city, dispatch)}>Search</button>
         </div>
       </div>
-      {weather && <span>{formatToDayMonthYear(weather.dt)}</span>}
+      {weather && weather.dt && <span>{formatToDayMonthYear(weather.dt)}</span>}
       {weather && <span>,{weather.name}</span>}
       {weather && <WeatherDetails />}
       <button onClick={() => getCoord(setPosition)}>

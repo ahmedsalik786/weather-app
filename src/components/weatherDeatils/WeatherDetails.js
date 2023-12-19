@@ -11,13 +11,14 @@ function WeatherDetails() {
   return (
     <>
       <div className="body-container">
-        <div className="topBox">
-          <TopBox />
-        </div>
-
+        {weather && (
+          <div className="topBox">
+            <TopBox />
+          </div>
+        )}
         <div className="mid">
-          <span>Longitude:{weather.coord.lon}</span>{" "}
-          <span>Latitude:{weather.coord.lat}</span>
+          <span>Longitude:{weather?.coord?.lon}</span>{" "}
+          <span>Latitude:{weather?.coord?.lat}</span>
         </div>
 
         <div className="buttom-box">
