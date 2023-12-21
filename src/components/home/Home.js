@@ -11,6 +11,7 @@ import {
   handleSearch,
   getCoord,
 } from "./home.action";
+import Appp from "./Appp";
 
 function Home() {
   const dispatch = useDispatch();
@@ -41,9 +42,11 @@ function Home() {
           />
           <button onClick={() => handleSearch(city, dispatch)}>Search</button>
         </div>
+
+        {/* <Appp city={city} dispatch={dispatch} /> */}
       </div>
       {weather && weather.dt && <span>{formatToDayMonthYear(weather.dt)}</span>}
-      {weather && <span>,{weather.name}</span>}
+      {weather && <span>{weather.name}</span>}
       {weather && <WeatherDetails />}
       <button onClick={() => getCoord(setPosition)}>
         Get weather for Your Location
